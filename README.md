@@ -1,2 +1,2 @@
 # skhelper
-Simply browser extention to help SK analyst make their work
+Simply browser extension to help SK analysts make their work better
