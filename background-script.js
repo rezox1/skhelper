@@ -14,6 +14,7 @@ browser.menus.create({
   onclick: getUUID
 });
 
+browser.runtime.onMessage.addListener();
 /*
 попробовать ограничить отображение меню только на элементах смарт кит через contexts
 */

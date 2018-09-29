@@ -20,26 +20,32 @@ const copyToClipboard = str => {
 		document.getSelection().addRange(selected); // Restore the original selection
 	}
 };
-//функция показа сообщения в ките
-function showMessage(type, message){
-	switch (type){
-		case 'info':
-		window.wrappedJSObject.toastr.info(message);
-		break;
-		case 'success':
-		window.wrappedJSObject.toastr.success(message);
-		break;
-		case 'error':
-		window.wrappedJSObject.toastr.error(message);
-		break;
-		case 'warning':
-		window.wrappedJSObject.toastr.warning(message);
-		break;
-		default:
-		console.log("Unknown type of message");
-		break;
+//функция показа сообщения
+function showMessage(type, message) {
+    if (!!window.wrappedJSObject.toastr) {
+        switch (type) {
+            case 'info':
+                window.wrappedJSObject.toastr.info(message);
+                break;
+            case 'success':
+                window.wrappedJSObject.toastr.success(message);
+                break;
+            case 'error':
+                window.wrappedJSObject.toastr.error(message);
+                break;
+            case 'warning':
+                window.wrappedJSObject.toastr.warning(message);
+                break;
+            default:
+                console.log("Unknown type of message");
+                break;
+        }
+        XPCNativeWrapper(window.wrappedJSObject.toastr);
+    } else {
+		
 	}
-	XPCNativeWrapper(window.wrappedJSObject.toastr);
+
+    //переделать со временем на более надежный вариант (сделать проверку на то, что страница китовая, а уже затем проверять наличие объекта)
 }
 
 //получение информации о состоянии приложения
