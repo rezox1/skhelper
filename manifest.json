@@ -20,7 +20,7 @@
 		"scripts": ["background-script.js"]
 	},
 
-	"permissions": ["clipboardWrite", "menus, notifications"],
+	"permissions": ["clipboardWrite", "menus", "notifications"],
 
 	"browser_action": {
 		"browser_style" : true,

@@ -22,6 +22,7 @@ const copyToClipboard = str => {
 };
 //функция показа сообщения
 function showMessage(type, message) {
+	//если есть объект для вывода сообщения в ките
     if (!!window.wrappedJSObject.toastr) {
         switch (type) {
             case 'info':
@@ -40,12 +41,15 @@ function showMessage(type, message) {
                 console.log("Unknown type of message");
                 break;
         }
+		//wrap it
         XPCNativeWrapper(window.wrappedJSObject.toastr);
-    } else {
-		
+	//стандартное уведомление в браузере
+	} else {
+
 	}
 
     //переделать со временем на более надежный вариант (сделать проверку на то, что страница китовая, а уже затем проверять наличие объекта)
+
 }
 
 //получение информации о состоянии приложения
